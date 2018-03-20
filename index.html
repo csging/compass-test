@@ -54,53 +54,43 @@
         <br> |
     </div>
 
-    <div class="debug"></div>
-    <div class="not-available" style="display: none;">
-        This browser/device does not support this feature :(
-        <br><br><br><br> Try a mobile device with Firefox or Chrome
-    </div>
-
     <script src="jquery-2.2.2.min.js"></script>
     <script src="underscore-min.js"></script>
     <script>
-        function print(event) {
-            $('.debug').html('Alpha: ' + event.alpha + '<br />Beta: ' + event.beta + '<br />Gamma: ' + event.gamma);
-        }
+        // function print(event) {
+        //     $('.debug').html('Alpha: ' + event.alpha + '<br />Beta: ' + event.beta + '<br />Gamma: ' + event.gamma);
+        // }
 
-        function handle(event) {
+        // function handle(event) {
+        //     var deg = parseInt(event.alpha);
+        //     $('.not-available').hide();
+        //     $('.arrow').css('-webkit-transform', 'rotate(' + deg + 'deg)').css('-moz-transform', 'rotate(' + deg + 'deg)').css('transform', 'rotate(' + deg + 'deg)');
+        // }
+        // $(document).ready(function() {
+        //     if (window.DeviceOrientationEvent) {
+        //         window.addEventListener("deviceorientation", _.throttle(handle, 80), true);
+        //     }
+        // });
+        window.addEventListener(
+            "deviceorientation",
+            handler true
+        );
+
+        function handler(event) {
             var deg = parseInt(event.alpha);
-            $('.not-available').hide();
-            $('.arrow').css('-webkit-transform', 'rotate(' + deg + 'deg)').css('-moz-transform', 'rotate(' + deg + 'deg)').css('transform', 'rotate(' + deg + 'deg)');
+            $('.arrow')
+                .css('-webkit-transform', 'rotate(' + deg + 'deg)')
+                .css('transform', 'rotate(' + deg + 'deg)');
         }
-        $(document).ready(function() {
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener("deviceorientation", _.throttle(handle, 80), true);
-            }
-        });
     </script>
 
 
-    <div style="position: fixed; top: 4px; right: 4px; color: black; background-color: rgb(255, 255, 128); font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, Mono; text-align: right; max-width: 600px; font-size: 80%;"></div><iframe id="piggyDomainNotSupported" style="opacity: 0; display: none;"></iframe><input style="position: absolute; top: -10000px;">
+    <!-- <div style="position: fixed; top: 4px; right: 4px; color: black; background-color: rgb(255, 255, 128); font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, Mono; text-align: right; max-width: 600px; font-size: 80%;"></div><iframe id="piggyDomainNotSupported" style="opacity: 0; display: none;"></iframe><input style="position: absolute; top: -10000px;"> -->
 
 </body>
 <script src="jquery-2.2.2.min.js"></script>
 <script src="underscore-min.js"></script>
-<script>
-    function print(event) {
-        $('.debug').html('Alpha: ' + event.alpha + '<br />Beta: ' + event.beta + '<br />Gamma: ' + event.gamma);
-    }
 
-    function handle(event) {
-        var deg = parseInt(event.alpha);
-        $('.not-available').hide();
-        $('.arrow').css('-webkit-transform', 'rotate(' + deg + 'deg)').css('-moz-transform', 'rotate(' + deg + 'deg)').css('transform', 'rotate(' + deg + 'deg)');
-    }
-    $(document).ready(function() {
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener("deviceorientation", _.throttle(handle, 80), true);
-        }
-    });
-</script>
 <iframe id="piggyDomainNotSupported" style="opacity: 0; display: none;"></iframe>
 <input style="position: absolute; top: -10000px;">
 
